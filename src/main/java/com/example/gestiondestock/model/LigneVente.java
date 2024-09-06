@@ -8,7 +8,6 @@ import org.springframework.security.core.authority.mapping.NullAuthoritiesMapper
 import java.math.BigDecimal;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,9 +19,17 @@ public class LigneVente extends AbstractEntity {
     @JoinColumn(name = "idvente")
     private Ventes vente;
 
-    @Column(name="quantite")
+    @ManyToOne
+    @JoinColumn(name = "idarticle")
+    private Article article;
+
+    @Column(name = "quantite")
     private BigDecimal quantite;
 
-    @Column(name="prixunitaire")
+    @Column(name = "prixunitaire")
     private BigDecimal prixUnitaire;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
+
 }

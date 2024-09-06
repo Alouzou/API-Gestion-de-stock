@@ -1,6 +1,7 @@
 package com.example.gestiondestock.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,6 @@ import java.time.Instant;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -40,6 +40,7 @@ public class Utilisateur extends AbstractEntity{
     @JoinColumn(name = "identreprise")
     private Entreprise entreprise;
 
-    @OneToMany(mappedBy = "utilisateur")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "utilisateur")
+    @JsonIgnore
     private List<Roles> roles;
 }

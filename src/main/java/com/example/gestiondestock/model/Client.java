@@ -6,7 +6,6 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -15,6 +14,7 @@ import java.util.List;
 public class Client extends AbstractEntity {
     @Column(name = "nom")
     private String nom;
+
     @Column(name = "prenom")
     private String prenom;
 
@@ -31,6 +31,8 @@ public class Client extends AbstractEntity {
     @Column(name = "numTel")
     private String numTel;
 
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @OneToMany(mappedBy = "client")
     private List<CommandeClient> commandeClients;

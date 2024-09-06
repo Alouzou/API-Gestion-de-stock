@@ -6,10 +6,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.time.Instant;
 import java.util.List;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -17,14 +17,20 @@ import java.util.List;
 @Table(name ="category")
 public class Category extends AbstractEntity{
 
-    @Column(name = "category")
+
+    @Column(name = "code")
     private String code;
 
     @Column(name = "designation")
-    private String designantion;
+    private String designation;
+
+    @Column(name = "identreprise")
+    private Integer idEntreprise;
 
     @OneToMany(mappedBy = "category")
     private List<Article> articles;
+
+//
 
 
 }
