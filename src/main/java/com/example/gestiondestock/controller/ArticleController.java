@@ -23,7 +23,7 @@ public class ArticleController implements ArticleApi {
 
     @Override
     public ArticleDto save(ArticleDto dto) {
-
+        System.out.println("Requête reçue : " + dto);
         return articleService.save(dto);
     }
 
