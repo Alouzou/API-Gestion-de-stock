@@ -17,7 +17,7 @@ import static com.example.gestiondestock.utils.Constants.APP_ROOT;
 @RequestMapping(APP_ROOT + "/categories")
 public interface CategoryApi {
 
-    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Enregistrer une catégorie", description = "Cette méthode permet d'enregistrer ou modifier une catégorie")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "L'objet catégorie est crée / modifié", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryDto.class))),

@@ -1,0 +1,611 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenApi documentation gestion de stock",
+    "description": "OpenApi documentation pour gestion de stock",
+    "contact": {
+      "name": "AmineO",
+      "email": "amino@gmail.com"
+    },
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "LOCAL ENV"
+    }
+  ],
+  "paths": {
+    "/gestiondestock/v1/clients": {
+      "post": {
+        "tags": [
+          "client-controller"
+        ],
+        "summary": "Enregistrer un client",
+        "description": "Cette méthode permet d'ajouter un client",
+        "operationId": "save",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ClientDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "L'objet client est ajouté/modifié",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/categories": {
+      "post": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Enregistrer une catégorie",
+        "description": "Cette méthode permet d'enregistrer ou modifier une catégorie",
+        "operationId": "save_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoryDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "L'objet catégorie est crée / modifié",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "L'objet catégorie n'est pas valide",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/articles/": {
+      "get": {
+        "tags": [
+          "article-controller"
+        ],
+        "summary": "Renvoi la liste des articles",
+        "description": "Cette methode permet de chercher et renvoyer la liste des articles qui existent dans la BDD",
+        "operationId": "findAll_2",
+        "responses": {
+          "200": {
+            "description": "La liste des article / Une liste vide",
+            "content": {
+              "application/json": {
+
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "article-controller"
+        ],
+        "summary": "Enregistrer un article",
+        "description": "Cette méthode permet d'enregistrer ou modifier un article",
+        "operationId": "save_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "L'objet article est crée / modifié",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "L'objet article n'est pas valide",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/clients/{idClient}": {
+      "get": {
+        "tags": [
+          "client-controller"
+        ],
+        "summary": "Rechercher un client par ID",
+        "description": "Cette méthode permet de chercher un client par son ID",
+        "operationId": "findById",
+        "parameters": [
+          {
+            "name": "idClient",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Le client a été trouvé dans la BDD",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aucun client n'existe dans la BDD avec l'ID fourni",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "client-controller"
+        ],
+        "summary": "Supprimer un client",
+        "description": "Cette méthode permet de supprimer un client par ID",
+        "operationId": "delete",
+        "parameters": [
+          {
+            "name": "idClient",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Le client a été supprimé"
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/clients/": {
+      "get": {
+        "tags": [
+          "client-controller"
+        ],
+        "summary": "Renvoi la liste des clients",
+        "description": "Cette methode permet de chercher et renvoyer la liste des clients qui existent dans la BDD",
+        "operationId": "findAll",
+        "responses": {
+          "200": {
+            "description": "La liste des clients / Une liste vide",
+            "content": {
+              "application/json": {
+
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/categories/gestiondestock/v1/categories": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Renvoi la liste des categories",
+        "description": "Cette methode permet de chercher et renvoyer la liste des categories qui existent",
+        "operationId": "findAll_1",
+        "responses": {
+          "200": {
+            "description": "La liste des catégories / Une liste vide",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/categories/gestiondestock/v1/categories/filter/{codeCategory}": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Rechercher une categorie par CODE",
+        "description": "Cette methode permet de chercher une categorie par son CODE",
+        "operationId": "findByCode",
+        "parameters": [
+          {
+            "name": "codeCategory",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "L'article a ete trouve dans la BDD",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aucun article n'existe dans la BDD avec le CODE fourni",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/categories/categories/{idCategory}": {
+      "get": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Rechercher une categorie par ID",
+        "description": "Cette methode permet de chercher une categorie par son ID",
+        "operationId": "findById_1",
+        "parameters": [
+          {
+            "name": "idCategory",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "La catégorie a été trouvé dans la BDD",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aucune catégorie n'existe dans la BDD avec l'ID fourni",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/articles/{idArticle}": {
+      "get": {
+        "tags": [
+          "article-controller"
+        ],
+        "summary": "Rechercher un article par ID",
+        "description": "Cette méthode permet de chercher un article par son ID",
+        "operationId": "findById_2",
+        "parameters": [
+          {
+            "name": "idArticle",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "L'article a été trouvé dans la BDD",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aucun article n'existe dans la BDD avec l'ID fourni",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "article-controller"
+        ],
+        "summary": "Supprimer un article",
+        "description": "Cette méthode permet de supprimer un article par ID",
+        "operationId": "delete_2",
+        "parameters": [
+          {
+            "name": "idArticle",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "L'article a été supprimé"
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/articles/{codeArticle}": {
+      "get": {
+        "tags": [
+          "article-controller"
+        ],
+        "summary": "Rechercher un article par CODE",
+        "description": "Cette méthode permet de chercher un article par son code",
+        "operationId": "findByCodeArticle",
+        "parameters": [
+          {
+            "name": "codeArticle",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "L'article a été trouvé dans la BDD",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Aucun article n'existe dans la BDD avec le CODE fourni",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "gestiondestock-application"
+        ],
+        "operationId": "helloWorld_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gestiondestock/v1/categories/gestiondestock/v1/categories/delete/{idCategory}": {
+      "delete": {
+        "tags": [
+          "category-controller"
+        ],
+        "summary": "Supprimer un article",
+        "description": "Cette méthode permet de supprimer une categorie par ID",
+        "operationId": "delete_1",
+        "parameters": [
+          {
+            "name": "idCategory",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "La categorie a été supprimée"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AdresseDto": {
+        "type": "object",
+        "properties": {
+          "adresse1": {
+            "type": "string"
+          },
+          "adresse2": {
+            "type": "string"
+          },
+          "ville": {
+            "type": "string"
+          },
+          "codePostale": {
+            "type": "string"
+          },
+          "pays": {
+            "type": "string"
+          }
+        }
+      },
+      "ClientDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nom": {
+            "type": "string"
+          },
+          "prenom": {
+            "type": "string"
+          },
+          "adresse": {
+            "$ref": "#/components/schemas/AdresseDto"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "mail": {
+            "type": "string"
+          },
+          "numTel": {
+            "type": "string"
+          },
+          "idEntreprise": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CategoryDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "designation": {
+            "type": "string"
+          },
+          "idEntreprise": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "ArticleDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codeArticle": {
+            "type": "string"
+          },
+          "designation": {
+            "type": "string"
+          },
+          "prixUnitaireHt": {
+            "type": "number"
+          },
+          "tauxTva": {
+            "type": "number"
+          },
+          "prixUnitaireTtc": {
+            "type": "number"
+          },
+          "photo": {
+            "type": "string"
+          },
+          "category": {
+            "$ref": "#/components/schemas/CategoryDto"
+          },
+          "idEntreprise": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      }
+    }
+  }
+}

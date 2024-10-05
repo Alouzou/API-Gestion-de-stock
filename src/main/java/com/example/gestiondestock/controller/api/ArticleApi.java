@@ -24,7 +24,7 @@ public interface ArticleApi {
 
 
 
-    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Enregistrer un article", description = "Cette méthode permet d'enregistrer ou modifier un article")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "L'objet article est crée / modifié", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ArticleDto.class))),
@@ -39,7 +39,7 @@ public interface ArticleApi {
             @ApiResponse(responseCode = "200", description = "L'article a été trouvé dans la BDD", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ArticleDto.class))),
             @ApiResponse(responseCode = "404", description = "Aucun article n'existe dans la BDD avec l'ID fourni")
     })
-    @GetMapping(value = APP_ROOT + "/articles/{idArticle}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value =  "/{idArticle}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     ArticleDto findById(@PathVariable("idArticle") Integer id);
 
 
@@ -56,7 +56,7 @@ public interface ArticleApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "La liste des article / Une liste vide", content = @Content(mediaType = "application/json"))
     })
-    @GetMapping(value =  "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value =  "/", produces = MediaType.APPLICATION_JSON_VALUE)
     List<ArticleDto> findAll();
 
     List<LigneVenteDto> findHistoriqueVentes(Integer idArticle);
@@ -71,6 +71,6 @@ public interface ArticleApi {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "L'article a été supprimé")
     })
-    @DeleteMapping(value = APP_ROOT + "/articles/{idArticle}")
+    @DeleteMapping(value = "/{idArticle}")
     void delete(@PathVariable("idArticle") Integer id);
 }

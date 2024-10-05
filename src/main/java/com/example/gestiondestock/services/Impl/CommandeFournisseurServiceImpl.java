@@ -1,6 +1,7 @@
 package com.example.gestiondestock.services.Impl;
 
 import com.example.gestiondestock.dto.*;
+import com.example.gestiondestock.dto.ArticleDto;
 import com.example.gestiondestock.exception.EntityNotFoundException;
 import com.example.gestiondestock.exception.ErrorCodes;
 import com.example.gestiondestock.exception.InvalidEntityException;
