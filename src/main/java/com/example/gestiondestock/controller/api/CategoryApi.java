@@ -1,6 +1,5 @@
 package com.example.gestiondestock.controller.api;
 
-import com.example.gestiondestock.dto.ArticleDto;
 import com.example.gestiondestock.dto.CategoryDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -17,7 +16,7 @@ import static com.example.gestiondestock.utils.Constants.APP_ROOT;
 @RequestMapping(APP_ROOT + "/categories")
 public interface CategoryApi {
 
-    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Enregistrer une catégorie", description = "Cette méthode permet d'enregistrer ou modifier une catégorie")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "L'objet catégorie est crée / modifié", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryDto.class))),
@@ -26,7 +25,7 @@ public interface CategoryApi {
     CategoryDto save(@RequestBody CategoryDto categoryDto);
 
 
-    @GetMapping(value = "/categories/{idCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{idCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Rechercher une categorie par ID", description = "Cette methode permet de chercher une categorie par son ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "La catégorie a été trouvé dans la BDD", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryDto.class))),
@@ -35,7 +34,7 @@ public interface CategoryApi {
     CategoryDto findById(@PathVariable("idCategory") Integer id);
 
 
-    @GetMapping(value = APP_ROOT + "/categories/filter/{codeCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/filter/{codeCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Rechercher une categorie par CODE", description = "Cette methode permet de chercher une categorie par son CODE")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "L'article a ete trouve dans la BDD", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryDto.class))),
@@ -44,7 +43,7 @@ public interface CategoryApi {
     CategoryDto findByCode(@PathVariable("codeCategory") String code);
 
 
-    @GetMapping(APP_ROOT + "/categories")
+    @GetMapping( "/")
     @Operation(summary = "Renvoi la liste des categories", description = "Cette methode permet de chercher et renvoyer la liste des categories qui existent")
     @ApiResponses(
             @ApiResponse(responseCode = "200", description = "La liste des catégories / Une liste vide", content = @Content(mediaType = "application/json", schema = @Schema(implementation = CategoryDto.class)))
@@ -52,7 +51,7 @@ public interface CategoryApi {
     List<CategoryDto> findAll();
 
 
-    @DeleteMapping(value = APP_ROOT + "/categories/delete/{idCategory}")
+    @DeleteMapping(value =  "/{idCategory}")
     @Operation(summary = "Supprimer un article", description = "Cette méthode permet de supprimer une categorie par ID")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "La categorie a été supprimée")

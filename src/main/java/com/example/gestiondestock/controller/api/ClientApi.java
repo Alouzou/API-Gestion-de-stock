@@ -1,6 +1,5 @@
 package com.example.gestiondestock.controller.api;
 
-import com.example.gestiondestock.dto.ArticleDto;
 import com.example.gestiondestock.dto.ClientDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

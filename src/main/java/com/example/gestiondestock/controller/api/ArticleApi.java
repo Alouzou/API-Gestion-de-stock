@@ -4,7 +4,6 @@ import com.example.gestiondestock.dto.ArticleDto;
 import com.example.gestiondestock.dto.LigneCommandeClientDto;
 import com.example.gestiondestock.dto.LigneCommandeFournisseurDto;
 import com.example.gestiondestock.dto.LigneVenteDto;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
