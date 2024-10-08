@@ -38,7 +38,7 @@ public interface ArticleApi {
             @ApiResponse(responseCode = "200", description = "L'article a été trouvé dans la BDD", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ArticleDto.class))),
             @ApiResponse(responseCode = "404", description = "Aucun article n'existe dans la BDD avec l'ID fourni")
     })
-    @GetMapping(value =  "/{idArticle}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value =  "/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
     ArticleDto findById(@PathVariable("idArticle") Integer id);
 
 
@@ -47,7 +47,7 @@ public interface ArticleApi {
             @ApiResponse(responseCode = "200", description = "L'article a été trouvé dans la BDD", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ArticleDto.class))),
             @ApiResponse(responseCode = "404", description = "Aucun article n'existe dans la BDD avec le CODE fourni")
     })
-    @GetMapping(value =  "/{codeArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value =  "/filter/{codeArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
     ArticleDto findByCodeArticle(@PathVariable("codeArticle") String codeArticle);
 
     @Operation(summary = "Renvoi la liste des articles", description = "Cette methode permet de chercher et renvoyer la liste des articles qui existent "
