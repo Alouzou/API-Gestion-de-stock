@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -50,4 +51,13 @@ public class Article extends AbstractEntity{
 
     @OneToMany(mappedBy = "article")
     private List<MvtStk> mvtStks;
+
+
+    @PrePersist
+    public void generateCodeArticle(){
+        if(this.codeArticle == null || this.codeArticle.isEmpty()){
+            this.codeArticle = "ART-" + UUID.randomUUID().toString();
+        }
+    }
+
 }

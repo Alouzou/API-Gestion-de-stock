@@ -9,4 +9,13 @@ public interface Constants {
     String FIND_COMMANDE_FOURNISSEUR_BY_CODE_ENDPOINT =  "/filter/{codeCommandeFournisseur}";
     String FIND_ALL_COMMANDE_FOURNISSEUR_ENDPOINT =  "/";
     String DELETE_COMMANDE_FOURNISSEUR_ENDPOINT =  "/{idCommandeFournisseur}";
+    String ENTREPRISE_ENDPOINT = APP_ROOT + "/entreprises";
+
+    String FOURNISSEUR_ENDPOINT = APP_ROOT + "/fournisseurs";
+
+    String UTILISATEUR_ENDPOINT = APP_ROOT + "/utilisateurs";
+
+    String VENTES_ENDPOINT = APP_ROOT + "/ventes";
+
+    String AUTHENTICATION_ENDPOINT = APP_ROOT + "/auth";
 }
