@@ -25,6 +25,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -55,6 +56,9 @@ public class ArticleServiceImpl implements ArticleService {
             throw new InvalidEntityException("L'article n'est pas valide", ErrorCodes.ARTICLE_NOT_VALID, errors);
         }
 
+        if(dto.getCodeArticle() == null || dto.getCodeArticle().isEmpty()) {
+            dto.setCodeArticle("ART-" + UUID.randomUUID().toString());
+        }
         return ArticleDto.fromEntity(
                 articleRepository.save(
                         ArticleDto.toEntity(dto)

@@ -53,11 +53,4 @@ public class Article extends AbstractEntity{
     private List<MvtStk> mvtStks;
 
 
-    @PrePersist
-    public void generateCodeArticle(){
-        if(this.codeArticle == null || this.codeArticle.isEmpty()){
-            this.codeArticle = "ART-" + UUID.randomUUID().toString();
-        }
-    }
-
 }
