@@ -77,11 +77,11 @@ public class AuthenticationController implements AuthenticationApi {
     }
 
 
-//    @GetMapping("/tokenBid/tester/{ps}")
-//    public String tokenBid(@PathVariable("ps") String password){
-//        return passwordEncoder.encode(password);
-////        return jwtUtil.unTokenBidon();
-//    }
+    @GetMapping("/tokenBid/tester/{ps}")
+    public String tokenBid(@PathVariable("ps") String password){
+        return passwordEncoder.encode(password);
+//        return jwtUtil.unTokenBidon();
+    }
 ////    @Override
 ////    public String generateToken() {
 ////        return jwtUtil.createToken();
