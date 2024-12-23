@@ -46,22 +46,23 @@ public class ArticleController implements ArticleApi {
 
     @Override
     public List<LigneVenteDto> findHistoriqueVentes(Integer idArticle) {
-        return null;
+        return articleService.findHistoriqueVentes(idArticle);
     }
 
     @Override
     public List<LigneCommandeClientDto> findHistoriaueCommandeClient(Integer idArticle) {
-        return null;
+        return articleService.findHistoriaueCommandeClient(idArticle);
     }
 
     @Override
     public List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(Integer idArticle) {
-        return null;
+
+        return articleService.findHistoriqueCommandeFournisseur(idArticle);
     }
 
     @Override
     public List<ArticleDto> findAllArticleByIdCategory(Integer idCategory) {
-        return null;
+        return articleService.findAllArticleByIdCategory(idCategory);
     }
 
     @Override

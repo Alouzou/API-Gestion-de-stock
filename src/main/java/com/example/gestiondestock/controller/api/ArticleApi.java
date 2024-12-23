@@ -58,13 +58,17 @@ public interface ArticleApi {
     @GetMapping(value =  "/", produces = MediaType.APPLICATION_JSON_VALUE)
     List<ArticleDto> findAll();
 
-    List<LigneVenteDto> findHistoriqueVentes(Integer idArticle);
+    @GetMapping(value =  "/historique/vente/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
+    List<LigneVenteDto> findHistoriqueVentes(@PathVariable("idArticle") Integer idArticle);
 
-    List<LigneCommandeClientDto> findHistoriaueCommandeClient(Integer idArticle);
+    @GetMapping(value = "/historique/commandeclient/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
+    List<LigneCommandeClientDto> findHistoriaueCommandeClient(@PathVariable("idArticle") Integer idArticle);
 
-    List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(Integer idArticle);
+    @GetMapping(value =  "/historique/commandefournisseur/{idArticle}", produces = MediaType.APPLICATION_JSON_VALUE)
+    List<LigneCommandeFournisseurDto> findHistoriqueCommandeFournisseur(@PathVariable("idArticle") Integer idArticle);
 
-    List<ArticleDto> findAllArticleByIdCategory(Integer idCategory);
+    @GetMapping(value = "/filter/category/{idCategory}", produces = MediaType.APPLICATION_JSON_VALUE)
+    List<ArticleDto> findAllArticleByIdCategory(@PathVariable("idCategory") Integer idCategory);
 
     @Operation(summary = "Supprimer un article", description = "Cette méthode permet de supprimer un article par ID")
     @ApiResponses(value = {
