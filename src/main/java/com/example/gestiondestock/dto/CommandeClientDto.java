@@ -13,7 +13,8 @@ import java.util.stream.Collectors;
 
 @Data
 @Builder
-public class CommandeClientDto {
+public class
+CommandeClientDto {
 
     private Integer id;
 

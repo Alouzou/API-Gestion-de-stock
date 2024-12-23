@@ -59,13 +59,13 @@ public class CommandeClientServiceImpl implements CommandeClientService {
         }
 
         if (dto.getId() != null && dto.isCommandeLivree()) {
-            throw new InvalidOperationException("Impossible de modifier la commande lorsqu'elle est livree", ErrorCodes.COMMANDE_CLIENT_NON_MODIFIABLE);
+            throw new InvalidOperationException("Impossible de modifier une commande déja livrée", ErrorCodes.COMMANDE_CLIENT_NON_MODIFIABLE);
         }
 
         Optional<Client> client = clientRepository.findById(dto.getClient().getId());
         if (client.isEmpty()) {
             log.warn("Client with ID {} was not found in the DB", dto.getClient().getId());
-            throw new EntityNotFoundException("Aucun client avec l'ID" + dto.getClient().getId() + " n'a ete trouve dans la BDD",
+            throw new EntityNotFoundException("Aucun client avec l'ID" + dto.getClient().getId() + " n'a été trouvé dans la BDD",
                     ErrorCodes.CLIENT_NOT_FOUND);
         }
 
