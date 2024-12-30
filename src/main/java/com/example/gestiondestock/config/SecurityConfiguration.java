@@ -28,6 +28,7 @@ public class SecurityConfiguration {
 
     private static final String[] WHITE_LIST_URL = {
             APP_ROOT + "/auth/**",
+//            APP_ROOT + "/entreprises/create",
             "/v2/api-docs",
             "/swagger-resources",
             "/swagger-resources/**",
@@ -57,13 +58,13 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(WHITE_LIST_URL).permitAll()
-//                        .requestMatchers(HttpMethod.POST, APP_ROOT + "/utilisateurs/").permitAll()
+                        .requestMatchers(HttpMethod.POST, APP_ROOT + "/entreprises").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                );
-                //.addFilterBefore(applicationRequestFilter, UsernamePasswordAuthenticationFilter.class);
+                )
+                .addFilterBefore(applicationRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
 
         return http.build();

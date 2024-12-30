@@ -146,7 +146,7 @@ public class CommandeClientServiceImpl implements CommandeClientService {
         }
         List<LigneCommandeClient> ligneCommandeClients = ligneCommandeClientRepository.findAllByCommandeClientId(id);
         if (!ligneCommandeClients.isEmpty()) {
-            throw new InvalidOperationException("Impossible de supprimer une commande client deja utilisee",
+            throw new InvalidOperationException("Impossible de supprimer une commande client dèja utilisée",
                     ErrorCodes.COMMANDE_CLIENT_ALREADY_IN_USE);
         }
         commandeClientRepository.deleteById(id);

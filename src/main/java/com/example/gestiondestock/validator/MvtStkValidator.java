@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MvtStkValidator {
-    public static List<String> validate(MvtStkDto mvtStkDto) {
+    public static List<String> validate(MvtStkDto dto) {
         List<String> errors = new ArrayList<>();
-        if (mvtStkDto == null) {
+        if (dto == null) {
             errors.add("Veuillez renseigner la date du mouvenent");
             errors.add("Veuillez renseigner la quantite du mouvenent");
             errors.add("Veuillez renseigner l'article");
@@ -18,17 +18,16 @@ public class MvtStkValidator {
 
             return errors;
         }
-        if (mvtStkDto.getDateMvt() == null) {
+        if (dto.getDateMvt() == null) {
             errors.add("Veuillez renseigner la date du mouvenent");
         }
-        if (mvtStkDto.getQuantite() == null || mvtStkDto.getQuantite().compareTo(BigDecimal.ZERO) == 0) {
+        if (dto.getQuantite() == null || dto.getQuantite().compareTo(BigDecimal.ZERO) == 0) {
             errors.add("Veuillez renseigner la quantite du mouvenent");
         }
-        if (mvtStkDto.getArticle() == null || mvtStkDto.getArticle().getId() == null) {
+        if (dto.getArticle() == null || dto.getArticle().getId() == null) {
             errors.add("Veuillez renseigner l'article");
         }
-        //errors.addAll(ArticleValidator.validate(mvtStkDto.getArticle()));
-        if (!StringUtils.hasLength(mvtStkDto.getTypeMvt().name())) {
+        if (!StringUtils.hasLength(dto.getTypeMvt().name())) {
             errors.add("Veuillez renseigner le type du mouvement");
         }
 
