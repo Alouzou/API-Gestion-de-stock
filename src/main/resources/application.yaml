@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+server:
+  port: 8080
+flickr:
+  apiKey: ${FLICKR_API_KEY}
+  apiSecret: ${FLICKR_API_SECRET}
+  appKey: ${FLICKR_APP_KEY}
+  appSecret: ${FLICKR_APP_SECRET}
+springdoc:
+  swagger-ui:
+    path: /doc.html
