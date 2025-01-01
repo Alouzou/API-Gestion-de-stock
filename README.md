@@ -13,6 +13,13 @@ Le projet utilise **Spring Boot** pour le backend et **Docker** pour la containe
 - **Docker Compose** : Outil permettant de définir et gérer des applications multi-conteneurs
 - **JPA/Hibernate** : Pour l'interaction avec la base de données
 
+## Sécurité :
+- **JWT** L'application utilise des tokens JWT pour l'authentification,
+- **Routes public** Les routes comme /auth/** et celles liées à Swagger (documentation API) sont accessibles sans authentification.
+- **Sécurisation des routes** Toutes les autres routes nécessitent une authentification via un token JWT valide.
+- **BCryptPasswordEncoder** pour encoder les mots de passes dans la base de données.
+
+
 ## Prérequis
 - **Docker** : Assurez-vous que Docker est installé sur votre machine.
 - **Docker Compose** : Outil pour gérer les conteneurs multi-services.
